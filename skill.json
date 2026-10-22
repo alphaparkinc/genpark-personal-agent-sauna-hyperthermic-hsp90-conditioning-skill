@@ -1,0 +1,65 @@
+{
+  "name": "genpark-personal-agent-sauna-hyperthermic-hsp90-conditioning-skill",
+  "version": "1.0.0",
+  "title": "Sauna Hyperthermic Conditioning & Heat Shock Protein Induction Skill",
+  "description": "Thermal dose kinetics, heat shock protein (HSP70/HSP90) transcriptional activation, plasma volume expansion, and growth hormone pulsatile release. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "sauna",
+    "hyperthermia",
+    "heat-shock-protein",
+    "hsp70",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_hyperthermic_thermal_dose",
+      "description": "Compute cumulative thermal dose and heat shock response score from chamber temperature and session duration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "temperature_celsius": {
+            "type": "number"
+          },
+          "duration_minutes": {
+            "type": "number"
+          },
+          "sauna_type": {
+            "type": "string",
+            "enum": [
+              "finnish_dry",
+              "infrared",
+              "steam_wet"
+            ]
+          }
+        },
+        "required": [
+          "temperature_celsius",
+          "duration_minutes"
+        ]
+      }
+    },
+    {
+      "name": "prescribe_post_sauna_electrolyte_recovery",
+      "description": "Synthesize post-hyperthermic rehydration, cool-down gradient, and cold plunge contrast protocol.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sweat_loss_liters": {
+            "type": "number"
+          },
+          "thermal_dose_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "thermal_dose_score"
+        ]
+      }
+    }
+  ]
+}
